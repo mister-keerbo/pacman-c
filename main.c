@@ -18,7 +18,7 @@ int main()
 
 	// Table
     char map[ROWS][COLS * 3 + 1] = {
-		" ____________  ____________ ",
+	" ____________  ____________ ",
         "|............||............|",
         "|. __ . ___ .||. ___ . __ .|",
         "|O|  |.|   |.||.|   |.|  |O|",
@@ -130,8 +130,12 @@ int main()
 			map[pacY][pacX] = ' ';
 			if (map[pacY][pacX + pacXDir] != '|' && map[pacY][pacX + pacXDir] != '_')
 		    {
-				if (map[pacY][pacX + pacXDir] == '.') score++;
-				pacX += pacXDir;
+			    	if (map[pacY][pacX + pacXDir] == 'M') quit = 1;
+				else
+				{
+					if (map[pacY][pacX + pacXDir] == '.') score++;
+					pacX += pacXDir;
+				}
 			}
 			map[pacY][pacX] = pac;
 		}
@@ -140,8 +144,12 @@ int main()
 			map[pacY][pacX] = ' ';
 			if (map[pacY + pacYDir][pacX] != '|' && map[pacY + pacYDir][pacX] != '_')
 			{
-				if (map[pacY + pacYDir][pacX] == '.') score++;
-				pacY += pacYDir;
+				if (map[pacY + pacYDir][pacX] == 'M') quit = 1;
+				else
+				{
+					if (map[pacY + pacYDir][pacX] == '.') score++;
+					pacY += pacYDir;
+				}
 			}
 			map[pacY][pacX] = pac;
 		}
