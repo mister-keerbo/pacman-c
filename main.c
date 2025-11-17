@@ -38,7 +38,7 @@ int main()
         "     |.||  Ready!  ||.|     ",
         "     |.||  ______  ||.|     ",
         " ____|.|| |__  __| ||.|____ ",
-        "|............||............|",
+        "|............||.M..........|",
         "|. __ . ___ .||. ___ . __ .|",
         "|.|_ |.|___|.||.|___|.| _|.|",
         "|O .||................||. O|",
@@ -131,11 +131,8 @@ int main()
 			if (map[pacY][pacX + pacXDir] != '|' && map[pacY][pacX + pacXDir] != '_')
 		    {
 			    	if (map[pacY][pacX + pacXDir] == 'M') quit = 1;
-				else
-				{
-					if (map[pacY][pacX + pacXDir] == '.') score++;
-					pacX += pacXDir;
-				}
+				if (map[pacY][pacX + pacXDir] == '.') score++;
+				pacX += pacXDir;
 			}
 			map[pacY][pacX] = pac;
 		}
@@ -145,11 +142,8 @@ int main()
 			if (map[pacY + pacYDir][pacX] != '|' && map[pacY + pacYDir][pacX] != '_')
 			{
 				if (map[pacY + pacYDir][pacX] == 'M') quit = 1;
-				else
-				{
-					if (map[pacY + pacYDir][pacX] == '.') score++;
-					pacY += pacYDir;
-				}
+				if (map[pacY + pacYDir][pacX] == '.') score++;
+				pacY += pacYDir;
 			}
 			map[pacY][pacX] = pac;
 		}
